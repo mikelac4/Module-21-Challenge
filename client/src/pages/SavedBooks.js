@@ -5,7 +5,7 @@ import { removeBookId } from '../utils/localStorage';
 
 import { QUERY_ME } from '../utils/queries';
 import { DELETE_BOOK } from '../utils/mutations';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation } from "@apollo/client";
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(QUERY_ME);
