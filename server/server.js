@@ -14,7 +14,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware
-})
+});
 
 server.applyMiddleware({ app });
 
@@ -38,7 +38,7 @@ app.get("*", (req, res) => {
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app })
-}
+
 
 db.once("open", () => {
   app.listen(PORT, () => {
@@ -48,6 +48,7 @@ db.once("open", () => {
     );
   });
 });
+};
 
 
 startApolloServer(typeDefs, resolvers);
