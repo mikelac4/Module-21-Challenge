@@ -18,6 +18,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
   },
+
   Mutation: {
     createUser: async (parent, args) => {
       const user = await User.create(args);
@@ -39,6 +40,7 @@ const resolvers = {
       const token = signToken(user);
       return { user, token };
     },
+
     saveBook: async (parent, { userId, book }) => {
       return User.findOneAndUpdate(
         { _id: userId },
@@ -51,6 +53,7 @@ const resolvers = {
         }
       );
     },
+    
     deleteBook: async (parent, { userId, book }) => {
       return User.findOneAndUpdate(
         { _id: userId },
